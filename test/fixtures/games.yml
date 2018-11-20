@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: MyString
+  max_size: 1
+  curr_size: 1
+  description: MyString
+  location_id: 1
+  sport_id: 1
+
+two:
+  time: MyString
+  max_size: 1
+  curr_size: 1
+  description: MyString
+  location_id: 1
+  sport_id: 1
