@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :friendships
+  resources :friendship_invitations
+  resources :users
   resources :locations
   resources :games
   resources :sports

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inviteeid:</strong>
+  <%= @friendship_invitation.inviteeID %>
+</p>
+
+<p>
+  <strong>Inviterid:</strong>
+  <%= @friendship_invitation.inviterID %>
+</p>
+
+<%= link_to 'Edit', edit_friendship_invitation_path(@friendship_invitation) %> |
+<%= link_to 'Back', friendship_invitations_path %>
