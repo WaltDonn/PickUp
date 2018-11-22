@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inviterid:</strong>
+  <%= @game_invitation.inviterID %>
+</p>
+
+<p>
+  <strong>Invitee:</strong>
+  <%= @game_invitation.invitee %>
+</p>
+
+<p>
+  <strong>Gameid:</strong>
+  <%= @game_invitation.gameID %>
+</p>
+
+<%= link_to 'Edit', edit_game_invitation_path(@game_invitation) %> |
+<%= link_to 'Back', game_invitations_path %>

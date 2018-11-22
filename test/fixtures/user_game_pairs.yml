@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maybe_going: 
+  is_creator: 
+  userID: 1
+  gameID: 1
+
+two:
+  maybe_going: 
+  is_creator: 
+  userID: 1
+  gameID: 1

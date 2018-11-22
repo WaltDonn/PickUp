@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Game Pairs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Maybe going</th>
+      <th>Is creator</th>
+      <th>Userid</th>
+      <th>Gameid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_game_pairs.each do |user_game_pair| %>
+      <tr>
+        <td><%= user_game_pair.maybe_going %></td>
+        <td><%= user_game_pair.is_creator %></td>
+        <td><%= user_game_pair.userID %></td>
+        <td><%= user_game_pair.gameID %></td>
+        <td><%= link_to 'Show', user_game_pair %></td>
+        <td><%= link_to 'Edit', edit_user_game_pair_path(user_game_pair) %></td>
+        <td><%= link_to 'Destroy', user_game_pair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Game Pair', new_user_game_pair_path %>

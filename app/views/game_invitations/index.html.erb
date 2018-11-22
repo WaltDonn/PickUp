@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Game Invitations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Inviterid</th>
+      <th>Invitee</th>
+      <th>Gameid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_invitations.each do |game_invitation| %>
+      <tr>
+        <td><%= game_invitation.inviterID %></td>
+        <td><%= game_invitation.invitee %></td>
+        <td><%= game_invitation.gameID %></td>
+        <td><%= link_to 'Show', game_invitation %></td>
+        <td><%= link_to 'Edit', edit_game_invitation_path(game_invitation) %></td>
+        <td><%= link_to 'Destroy', game_invitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game Invitation', new_game_invitation_path %>

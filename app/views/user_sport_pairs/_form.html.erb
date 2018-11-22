@@ -1,0 +1,27 @@
+<%= form_with(model: user_sport_pair, local: true) do |form| %>
+  <% if user_sport_pair.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_sport_pair.errors.count, "error") %> prohibited this user_sport_pair from being saved:</h2>
+
+      <ul>
+      <% user_sport_pair.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :userID %>
+    <%= form.number_field :userID, id: :user_sport_pair_userID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sportID %>
+    <%= form.number_field :sportID, id: :user_sport_pair_sportID %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
