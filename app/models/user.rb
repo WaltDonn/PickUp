@@ -6,6 +6,8 @@ class User < ApplicationRecord
 	has_many :user_sport_pairs
 	has_many :friendships
 	has_many :friendship_invitations
+	has_many :games, through: :user_game_pairs
+	has_many :sports, through: :user_sport_pairs
   	#Scopes
   	#-----------------------
   	scope :alphabetical, -> { order('last_name, first_name') }

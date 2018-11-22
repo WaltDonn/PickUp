@@ -2,6 +2,7 @@ class FriendshipInvitation < ApplicationRecord
 	#Relationships
   	#-----------------------
 	belongs_to :user
+  belongs_to :friend, :class_name => "User"
   	#Scopes
   	#-----------------------
   	#Validations
