@@ -1,0 +1,32 @@
+<%= form_with(model: game_invitation, local: true) do |form| %>
+  <% if game_invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game_invitation.errors.count, "error") %> prohibited this game_invitation from being saved:</h2>
+
+      <ul>
+      <% game_invitation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :inviterID %>
+    <%= form.number_field :inviterID, id: :game_invitation_inviterID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :invitee %>
+    <%= form.number_field :invitee, id: :game_invitation_invitee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gameID %>
+    <%= form.number_field :gameID, id: :game_invitation_gameID %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

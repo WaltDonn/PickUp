@@ -5,8 +5,7 @@ class Game < ApplicationRecord
   belongs_to :location
   belongs_to :sport
 
-  has_many :users, through: :user_games
-  has_one :location
+  has_many :users, through: :user_game_pairs
 
   # Scopes
   # --------------------

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maybe going:</strong>
+  <%= @user_game_pair.maybe_going %>
+</p>
+
+<p>
+  <strong>Is creator:</strong>
+  <%= @user_game_pair.is_creator %>
+</p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @user_game_pair.userID %>
+</p>
+
+<p>
+  <strong>Gameid:</strong>
+  <%= @user_game_pair.gameID %>
+</p>
+
+<%= link_to 'Edit', edit_user_game_pair_path(@user_game_pair) %> |
+<%= link_to 'Back', user_game_pairs_path %>
