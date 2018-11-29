@@ -4,7 +4,33 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
+    # WALTER - hard coding sports here
     @games = Game.all
+    if params[:sport1].nil?
+      @games = @games.not_for_sport(1)
+    end
+    if params[:sport2].nil?
+      @games = @games.not_for_sport(2)
+    end
+    if params[:sport3].nil?
+      @games = @games.not_for_sport(3)
+    end
+    if params[:sport4].nil?
+      @games = @games.not_for_sport(4)
+    end
+    if params[:sport5].nil?
+      @games = @games.not_for_sport(5)
+    end
+    # WALTER - filtering coming from url params, not user
+    puts "HELLOO"
+
+    if params[:time_dist] == 'time'
+      @games = @games.sort_time 
+      puts "WHAT"
+    else
+      @games = @games.sort_location
+      puts "NO"
+    end
   end
 
   # GET /games/1
