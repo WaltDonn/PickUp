@@ -11,14 +11,15 @@ class Game < ApplicationRecord
   # --------------------
   scope :for_location, -> (location_id) { where("location_id = ?", location_id) }
   scope :for_sport, -> (sport_id) { where("sport_id = ?", sport_id) }
-  scope :sort_time, -> { order('time') }
+  scope :not_for_sport, -> (sport_id) { where("sport_id != ?", sport_id) }
+  scope :sort_time, -> { order('time ASC') }
   scope :search, -> (term) { where("description LIKE ?", "%#{term}%")}
+  scope :sort_location, -> { order('location_id') }
 
 
   # Validations
   # --------------------
   validates_presence_of :time, :max_size, :location_id, :sport_id
-  validates :description, allow_blank: true
 
   validates_numericality_of :max_size, only_integer: true, greater_than: 0
 
