@@ -18,7 +18,6 @@ class Game < ApplicationRecord
   # Validations
   # --------------------
   validates_presence_of :time, :max_size, :location_id, :sport_id
-  validates :description, allow_blank: true
 
   validates_numericality_of :max_size, only_integer: true, greater_than: 0
 

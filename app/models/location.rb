@@ -10,9 +10,9 @@ class Location < ApplicationRecord
 
   # Validations
   # -----------------
-  validates_presense_of :name, :coordinates
+  validates_presence_of :name, :coordinates
   # 40.443218,-79.940224
-  validates_format_of :coordinates, :with => /^\-?(\d{1,})\.(\d{1,})\,\-?(\d{1,})\.(\d{1,})$/
+  validates_format_of :coordinates, :with => /\A\-?(\d{1,})\.(\d{1,})\,\-?(\d{1,})\.(\d{1,})\z/
 
   # Misc Methods and Constants
   # -----------------
