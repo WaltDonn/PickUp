@@ -22,14 +22,10 @@ class GamesController < ApplicationController
       @games = @games.not_for_sport(5)
     end
     # WALTER - filtering coming from url params, not user
-    puts "HELLOO"
-
     if params[:time_dist] == 'time'
       @games = @games.sort_time 
-      puts "WHAT"
     else
       @games = @games.sort_location
-      puts "NO"
     end
   end
 

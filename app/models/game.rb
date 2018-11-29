@@ -12,7 +12,7 @@ class Game < ApplicationRecord
   scope :for_location, -> (location_id) { where("location_id = ?", location_id) }
   scope :for_sport, -> (sport_id) { where("sport_id = ?", sport_id) }
   scope :not_for_sport, -> (sport_id) { where("sport_id != ?", sport_id) }
-  scope :sort_time, -> { order('time') }
+  scope :sort_time, -> { order('time ASC') }
   scope :search, -> (term) { where("description LIKE ?", "%#{term}%")}
   scope :sort_location, -> { order('location_id') }
 
