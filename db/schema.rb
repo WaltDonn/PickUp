@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20181122015522) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.datetime "time"
+    t.string "time"
     t.integer "max_size"
     t.integer "curr_size"
     t.string "description"
