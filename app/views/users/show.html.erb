@@ -34,8 +34,8 @@
       <% for game_pair in @games_attending %>
         <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
           <td align="left">&nbsp;<%= game_pair.id %></td>
-          <td align="left">&nbsp;<%= game_pair.game.id %></td>
-          <td align="left">&nbsp;<%= game_pair.game.location %></td>
+          <td align="left">&nbsp;<%= game_pair.game.sport.title %></td>
+          <td align="left">&nbsp;<%= game_pair.game.location.name %></td>
         </tr>
       <% end %>
         

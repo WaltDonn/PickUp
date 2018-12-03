@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :location_id %>
-    <%= form.text_field :location_id, id: :game_location_id %>
+    <%= form.collection_select :location_id, Location.all, :id, :name, :prompt => "Select..." %>
   </div>
 
   <div class="field">
