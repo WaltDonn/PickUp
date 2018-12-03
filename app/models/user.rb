@@ -28,6 +28,9 @@ class User < ApplicationRecord
 		finalArray = combinedArray.delete(self.id)
 		return finalArray
 	end
+    def fullName
+        return self.first_name + " " + self.last_name
+    end
   	#Use private methods to execute the custom validations
   	#------------------------
   	private
