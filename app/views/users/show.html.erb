@@ -1,54 +1,47 @@
-<p id="notice"><%= notice %></p>
+<table>
+  <tr valign="top">
+    <td width="300">
+      <h2>User Info:</h2>
+      <b>Name:&nbsp;&nbsp;</b>
+        <%= @user.fullName %><br /><br />
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <b>Email:&nbsp;&nbsp;</b>
+        <%= @user.email %><br /><br />
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+      <b>Bio:&nbsp;&nbsp;</b>
+        <%= @user.bio %><br /><br />
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+      <b>Age:&nbsp;&nbsp;</b>
+        <%= @user.age %><br /><br />
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+      <b>Curr Location:</b>
+        <%= @user.curr_location %><br><br><br>
 
-<p>
-  <strong>Password confirmation:</strong>
-  <%= @user.password_confirmation %>
-</p>
+        <%= link_to "Edit", edit_user_path(@user) %> |
+        <%= link_to "View All", users_path %>
+    </td>
+    <td width="10">&nbsp;</td>
+    <td width="250">
+      <h2>Games Attending:</h2>
+      <table class="datagrid">
+        <thead class="datagrid">
+          <th width="90">Game</th>
+          <th width="90">Time</th>
+          <th width="90">Location</th>
+        </thead>
+      
+      <%= "Will show games user is going to" %>
+      <% for game_pair in @games_attending %>
+        <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+          <td align="left">&nbsp;<%= game_pair.id %></td>
+          <td align="left">&nbsp;<%= game_pair.game.sport.title %></td>
+          <td align="left">&nbsp;<%= game_pair.game.location.name %></td>
+        </tr>
+      <% end %>
+        
+      </table>
+      <p class="supertiny">&nbsp;</p>
+    </td>
+  </tr>
+</table> 
 
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
-
-<p>
-  <strong>Time dist:</strong>
-  <%= @user.time_dist %>
-</p>
-
-<p>
-  <strong>Game in range:</strong>
-  <%= @user.game_in_range %>
-</p>
-
-<p>
-  <strong>Curr location:</strong>
-  <%= @user.curr_location %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

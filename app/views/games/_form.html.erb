@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :location_id %>
-    <%= form.number_field :location_id, id: :game_location_id %>
+    <%= form.collection_select :location_id, Location.all, :id, :name, :prompt => "Select..." %>
   </div>
 
   <div class="field">
     <%= form.label :sport_id %>
-    <%= form.number_field :sport_id, id: :game_sport_id %>
+    <%= form.collection_select :sport_id, Sport.all, :id, :title, :prompt => "Select..." %>
   </div>
 
   <div class="actions">
