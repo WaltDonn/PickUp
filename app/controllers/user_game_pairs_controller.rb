@@ -37,6 +37,52 @@ class UserGamePairsController < ApplicationController
     end
   end
 
+  ## Controller for "Going" button on games index page
+  def rsvp_going
+    game = Game.find(params[:game_id])
+
+    @user_game_pair = UserGamePair.new
+    game.curr_size = game.curr_size + 1
+    game.save
+    @user_game_pair.game_id = game.id
+    @user_game_pair.user_id = params[:user_id]
+    @user_game_pair.maybe_going = true
+    @user_game_pair.is_creator = false
+
+    respond_to do |format|
+      if @user_game_pair.save
+        format.html { redirect_to @user_game_pair, notice: 'User game pair was successfully created.' }
+        format.json { render :show, status: :created, location: @user_game_pair }
+      else
+        format.html { render :new }
+        format.json { render json: @user_game_pair.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  # Controller for "Maybe" button on games index page
+  def rsvp_maybe
+    game = Game.find(params[:game_id])
+
+    @user_game_pair = UserGamePair.new
+    @user_game_pair.game_id = game.id
+    @user_game_pair.user_id = params[:user_id]
+    @user_game_pair.maybe_going = false
+    @user_game_pair.is_creator = false
+
+    respond_to do |format|
+      if @user_game_pair.save
+        format.html { redirect_to @user_game_pair, notice: 'User game pair was successfully created.' }
+        format.json { render :show, status: :created, location: @user_game_pair }
+      else
+        format.html { render :new }
+        format.json { render json: @user_game_pair.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   # PATCH/PUT /user_game_pairs/1
   # PATCH/PUT /user_game_pairs/1.json
   def update
@@ -54,6 +100,12 @@ class UserGamePairsController < ApplicationController
   # DELETE /user_game_pairs/1
   # DELETE /user_game_pairs/1.json
   def destroy
+    # Decrement current game size if user was going
+    if @user_game_pair.maybe_going
+      game = Game.find(@user_game_pair.game_id)
+      game.curr_size -= 1
+      game.save
+    end
     @user_game_pair.destroy
     respond_to do |format|
       format.html { redirect_to user_game_pairs_url, notice: 'User game pair was successfully destroyed.' }

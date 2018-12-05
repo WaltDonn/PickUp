@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :games
   resources :sports
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'rsvp_going' => 'user_game_pairs#rsvp_going', :as => :rsvp_going
+  get 'rsvp_maybe' => 'user_game_pairs#rsvp_maybe', :as => :rsvp_maybe
+
 end
