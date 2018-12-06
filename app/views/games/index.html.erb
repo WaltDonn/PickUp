@@ -20,12 +20,12 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.time %></td>
+        <td><%= game.time.to_datetime.strftime("%b %d, %l:%M%P")  %></td>
         <td><%= game.max_size %></td>
         <td><%= game.curr_size %></td>
         <td><%= game.description %></td>
-        <td><%= game.location_id %></td>
-        <td><%= game.sport_id %></td>
+        <td><%= game.location.name %></td>
+        <td><%= game.sport.title %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
