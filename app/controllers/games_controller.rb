@@ -27,6 +27,18 @@ class GamesController < ApplicationController
     else
       @games = @games.sort_location
     end
+    # Don't show games that current user is already rsvped to
+    user_games = UserGamePair.all
+    remove_games = []
+    @games.each do |g|
+      user_games.each do |ug|
+        if ug.game_id == g.id #and ug.user_id == 1
+          remove_games << g
+          break
+        end
+      end
+    end
+    @games = @games - remove_games
   end
 
   # GET /games/1
