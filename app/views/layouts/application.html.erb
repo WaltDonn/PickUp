@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PickUp</title>
+    <title>PickUp:<%= controller.controller_name.capitalize %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrap">
+      <div id="header">
+        <h1>PickUp</h1>
+      </div>
+      <br />
+      <div style="clear:both;"></div>
+      <div id="body">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
+        <table border="0">
+          <tr>
+            
+            <td width="5">&nbsp;</td>
+            <td><%= yield %></td>
+          </tr>
+        </table>
+
+      </div>
+      <%= render 'partials/footer' %>
+    </div>
   </body>
 </html>

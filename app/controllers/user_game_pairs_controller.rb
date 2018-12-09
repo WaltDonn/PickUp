@@ -125,6 +125,6 @@ class UserGamePairsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_game_pair_params
-      params.require(:user_game_pair).permit(:maybe_going, :is_creator, :userID, :gameID)
+      params.require(:user_game_pair).permit(:maybe_going, :is_creator, :user_id, :game_id)
     end
 end
