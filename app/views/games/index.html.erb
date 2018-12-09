@@ -26,6 +26,8 @@
         <td><%= game.description %></td>
         <td><%= game.location_id %></td>
         <td><%= game.sport_id %></td>
+        <td><%= link_to 'Going', {controller: 'user_game_pairs', action: 'rsvp_going', game_id: game.id, user_id: 1}, class: 'button' %>
+        <td><%= link_to 'Maybe', {controller: 'user_game_pairs', action: 'rsvp_maybe', game_id: game.id, user_id: 1}, class: 'button' %>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
