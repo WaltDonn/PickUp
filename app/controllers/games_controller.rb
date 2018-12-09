@@ -32,7 +32,7 @@ class GamesController < ApplicationController
     remove_games = []
     @games.each do |g|
       user_games.each do |ug|
-        if ug.game_id == g.id: #and ug.user_id == 1
+        if ug.game_id == g.id #and ug.user_id == 1
           remove_games << g
           break
         end
