@@ -40,10 +40,14 @@ class UserGamePairsController < ApplicationController
   ## Controller for "Going" button on games index page
   def rsvp_going
     game = Game.find(params[:game_id])
+    if game.curr_size < game.max_size
+      game.curr_size = game.curr_size + 1
+      game.save
+    else
+      return
+    end
 
     @user_game_pair = UserGamePair.new
-    game.curr_size = game.curr_size + 1
-    game.save
     @user_game_pair.game_id = game.id
     @user_game_pair.user_id = params[:user_id]
     @user_game_pair.maybe_going = true
