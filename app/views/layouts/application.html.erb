@@ -1,34 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>PickUp:<%= controller.controller_name.capitalize %></title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div id="wrap">
-      <div id="header">
-        <h1>PickUp</h1>
-      </div>
-      <br />
-      <div style="clear:both;"></div>
-      <div id="body">
-          <% flash.each do |name, msg| %>
-            <%= content_tag :div, msg, id: "flash_#{name}" %>
-          <% end %>
-        <table border="0">
-          <tr>
-            
-            <td width="5">&nbsp;</td>
-            <td><%= yield %></td>
-          </tr>
-        </table>
 
-      </div>
-      <%= render 'partials/footer' %>
-    </div>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
