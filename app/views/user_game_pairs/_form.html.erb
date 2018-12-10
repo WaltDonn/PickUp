@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :userID %>
-    <%= form.number_field :userID, id: :user_game_pair_userID %>
+    <%= form.collection_select :user_id, User.all, :id, :first_name, :prompt => "Select..."%>
   </div>
 
   <div class="field">
     <%= form.label :gameID %>
-    <%= form.number_field :gameID, id: :user_game_pair_gameID %>
+    <%= form.collection_select :game_id, Game.all, :id, :id, :prompt => "Select ..."%>
   </div>
 
   <div class="actions">
