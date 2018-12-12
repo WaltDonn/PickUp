@@ -991,6 +991,13 @@ $table-border-color: #33FF36;
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
 
+
+
+
+
+
+// OUR CODE
+
 $card-user-container-margin-bottom: 1rem;
 $card-user-container-radius: $global-radius;
 $card-user-container-background: #FFFFFF;
@@ -1035,7 +1042,6 @@ table {
   border-collapse: collapse;
 }
 
-
 .listTable{
   border: 1px solid black;
 }
@@ -1045,6 +1051,66 @@ tr.specialRows:nth-child(odd) {background-color: #f2f2f2;}
 .detailLink {
   color: #71A750;
 }
+
+
+// WALTER'S CSS START (LOGIN, REGISTER, FILTER)
+html {
+  background-color: #b8f7ab;
+}
+
+#pickup {
+	color: #8AC566;
+	height: 80px;
+	padding-top: 5%;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	font-size: 100px;
+	font-family: "Montserrat"; 
+}
+//.container {
+//  width: 500px;
+//  clear: both;
+//}
+//
+//.container input {
+//  width: 100%;
+//  clear: both;
+//}
+
+/* The dropdown container */
+.dropdown {
+  float: right
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: #8AC566;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+// WALTER'S CSS END
+
+
 
 
 @import 'foundation';
