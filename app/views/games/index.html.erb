@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Games</h1>
-
-<%= render 'filter' %>
-
+<div class="dropdown">
+    <button class="dropbtn">Filter Games 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <%= render 'filter' %>
+    </div>
+</div> 
 <table>
   <thead>
     <tr>
