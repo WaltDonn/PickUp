@@ -10,5 +10,12 @@
   <%= @location.coordinates %>
 </p>
 
+<p>
+<iframe width="300" height="300" frameborder="0" style="border:0"
+ src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAXz0BUezYrcW-o1RDneZqK-WQLllBRPeU&q=<%=@location.name%>&center=<%=@location.coordinates%>"
+ allowfullscreen>
+</iframe>
+</p>
+
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

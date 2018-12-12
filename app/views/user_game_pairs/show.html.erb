@@ -1,24 +1,45 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Maybe going:</strong>
-  <%= @user_game_pair.maybe_going %>
+    <% if @user_game_pair.maybe_going == true %>
+        <strong>You're going to this game!</strong>
+    <% else %>
+        <strong>You're not going to this game</strong>
+    <% end %>
 </p>
 
 <p>
-  <strong>Is creator:</strong>
-  <%= @user_game_pair.is_creator %>
+    <% if @user_game_pair.is_creator == true %>
+        <strong>You are the creator!</strong>
+    <% end %>
 </p>
 
-<p>
-  <strong>Userid:</strong>
-  <%= @user_game_pair.user_id %>
-</p>
+<div class="small-8 columns" align="center">
+  <p id="notice"><%= notice %></p>
+  <h1><%=@user_game_pair.game.sport.title %> Game</h1>
+  <p>
+  <!-- Description -->
+    <%= @user_game_pair.game.description %>
+  </p>
+  <p>
+    <strong>When:</strong>
+    <%=Time.parse(@user_game_pair.game.time).strftime(" %m/%d/%y %I:%M %p") %>
+  </p>
+  <p>
+    <strong>Where:</strong>
+    <%= @user_game_pair.game.location.name %> <br>
+    <iframe width="300" height="300" frameborder="0" style="border:0"
+   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAXz0BUezYrcW-o1RDneZqK-WQLllBRPeU&q=<%=@user_game_pair.game.location.name%>&center=<%=@user_game_pair.game.location.coordinates%>"
+   allowfullscreen>
+  </iframe>
+  </p>
 
-<p>
-  <strong>Gameid:</strong>
-  <%= @user_game_pair.game_id %>
-</p>
-
-<%= link_to 'Edit', edit_user_game_pair_path(@user_game_pair) %> |
-<%= link_to 'Back', user_game_pairs_path %>
+  <p>
+    <strong>Size:</strong>
+    <%= @user_game_pair.game.curr_size %>/<%= @user_game_pair.game.max_size %> Max
+  </p>
+</div>
+<div class="small4 columns">
+  <%= link_to 'Edit', edit_game_path(@user_game_pair) %> |
+  <%= link_to 'All Games', games_path %>
+</div>
