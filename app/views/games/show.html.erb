@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="small-8 columns" align="center">
+  <p id="notice"><%= notice %></p>
+  <h1><%=@game.sport.title %> Game</h1>
+  <p>
+  <!-- Description -->
+    <%= @game.description %>
+  </p>
+  <p>
+    <strong>When:</strong>
+    <%=Time.parse(@game.time).strftime(" %m/%d/%y %I:%M %p") %>
+  </p>
+  <p>
+    <strong>Where:</strong>
+    <%= @game.location.name %> <br>
+    <iframe width="300" height="300" frameborder="0" style="border:0"
+   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAXz0BUezYrcW-o1RDneZqK-WQLllBRPeU&q=<%=@game.location.name%>&center=<%=@game.location.coordinates%>"
+   allowfullscreen>
+  </iframe>
+  </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @game.time %>
-</p>
-
-<p>
-  <strong>Max size:</strong>
-  <%= @game.max_size %>
-</p>
-
-<p>
-  <strong>Curr size:</strong>
-  <%= @game.curr_size %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @game.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @game.location_id %>
-</p>
-
-<p>
-  <strong>Sport:</strong>
-  <%= @game.sport_id %>
-</p>
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+  <p>
+    <strong>Size:</strong>
+    <%= @game.curr_size %>/<%= @game.max_size %> Max
+  </p>
+</div>
+<div class="small4 columns">
+  <%= link_to 'Edit', edit_game_path(@game) %>|
+  <%= link_to 'All Games', games_path %>
+</div>

@@ -56,7 +56,7 @@
 // $success-color: #43AC6A;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 3px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -609,7 +609,7 @@
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: darken(#fff, 5%);
+$panel-bg: scale-color(#6493ba, $lightness: -5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -835,15 +835,15 @@
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-// $table-even-row-bg: #f9f9f9  ;
+$table-even-row-bg: #33FF36  ;
 
 // These control the table cell border style
 // $table-border-style: solid;
 // $table-border-size: 1px;
-// $table-border-color: #ddd;
+$table-border-color: #33FF36;
 
 // These control the table head styles
-// $table-head-bg: #f5f5f5  ;
+// $table-head-bg: #f4f5f5  ;
 // $table-head-font-size: rem-calc(14);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
@@ -990,4 +990,61 @@
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
+
+$card-user-container-margin-bottom: 1rem;
+$card-user-container-radius: $global-radius;
+$card-user-container-background: #FFFFFF;
+$card-user-container-color: #OOOOOO;
+$card-user-container-image-size: 100px;
+
+.card-user-container {
+  margin-bottom: $card-user-container-margin-bottom;
+  background-color: $card-user-container-background;
+  color: #000000;
+  overflow: hidden;
+  padding: 0;
+  border-radius: $card-user-container-radius;
+  //border: 3px solid #8AC566;
+}
+.card-user-avatar {
+    .user-image {
+      display: block;
+      margin: auto;
+      border-radius: 50%;
+      width: $card-user-container-image-size + 2;
+      height: $card-user-container-image-size;
+      padding: rem-calc(15);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+#footer a {
+  color: #8AC566;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: #8AC566;
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+
+.listTable{
+  border: 1px solid black;
+}
+
+tr.specialRows:nth-child(odd) {background-color: #f2f2f2;}
+
+.detailLink {
+  color: #71A750;
+}
+
+
 @import 'foundation';

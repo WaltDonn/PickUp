@@ -1,40 +1,37 @@
+
 <table>
   <tr valign="top">
-    <td width="300">
-      <h2>User Info:</h2>
-      <b>Name:&nbsp;&nbsp;</b>
-        <%= @user.fullName %><br /><br />
+    <td width="40">
+    </td>
+    <td width="300" align="center">
+      <div class="card-user-avatar">
+        <%= image_tag "noPicFound.jpg", class: "user-image" %>
+      </div>
+      <h1><%= @user.fullName %></h1>
 
       <b>Email:&nbsp;&nbsp;</b>
-        <%= @user.email %><br /><br />
-
-      <b>Bio:&nbsp;&nbsp;</b>
-        <%= @user.bio %><br /><br />
+        <%= @user.email %><br>
 
       <b>Age:&nbsp;&nbsp;</b>
         <%= @user.age %><br /><br />
 
-      <b>Curr Location:</b>
-        <%= @user.curr_location %><br><br><br>
-
-        <%= link_to "Edit", edit_user_path(@user) %> |
-        <%= link_to "View All", users_path %>
+      <b>Bio:&nbsp;&nbsp;</b>
+        <%= @user.bio %><br /><br />
     </td>
-    <td width="10">&nbsp;</td>
-    <td width="250">
-      <h2>Games Attending:</h2>
-      <table class="datagrid">
-        <thead class="datagrid">
-          <th width="90">Game</th>
-          <th width="90">Time</th>
+    <!-- <td width="10">&nbsp;</td> -->
+    <td width="400">
+      <h3>Games Attending:</h3>
+      <table class="table listTable">
+
+        <thead>
+          <th width="130">Game</th>
+          <th width="150">Time</th>
           <th width="90">Location</th>
         </thead>
-      
-      <%= "Will show games user is going to" %>
       <% for game_pair in @games_attending %>
-        <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
-          <td align="left">&nbsp;<%= game_pair.id %></td>
-          <td align="left">&nbsp;<%= game_pair.game.sport.title %></td>
+        <tr class="specialRows">
+          <td align="left" class="detailLink">&nbsp;<%= link_to game_pair.game.sport.title, user_game_pair_path(game_pair) %></td>
+          <td align="left">&nbsp;<%= Time.parse(game_pair.game.time).strftime(" %m/%d/%y %I:%M %p") %></td>
           <td align="left">&nbsp;<%= game_pair.game.location.name %></td>
         </tr>
       <% end %>
@@ -42,6 +39,11 @@
       </table>
       <p class="supertiny">&nbsp;</p>
     </td>
+    <td width="100">
+
+        <%= link_to "Edit Profile", edit_user_path(@user) %>
+    </td>
   </tr>
 </table> 
+
 
