@@ -1,10 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
+<div class="dropdown">
+    <button class="dropbtn">Filter Games 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <%= render 'filter' %>
+    </div>
+</div>
+<br/>
+<h1>Games</h1> 
+<table class = "gamesTable">
 
-<%= render 'filter' %>
-
-<table class = "table listTable">
   <thead>
     <tr>
       <th>Sport</th>
@@ -20,7 +27,7 @@
 
   <tbody>
     <% @games.each do |game| %>
-      <tr class = "specialRows">
+      <tr>
         <td><%= game.sport.title %></td>
         <td><%= game.location.name %></td>
         <td><%= game.time.to_datetime.strftime("%b %d, %l:%M%P")  %></td>

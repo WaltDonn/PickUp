@@ -1,13 +1,13 @@
 <%= form_tag("/games", method: "get") do %>
   <%= check_box_tag :sport1, 1, false %>
-  <%= label :sport1, 'Sport 1' %>
+  <%= label :sport1, 'Basketball' %>
   <%= check_box_tag :sport2, 2, false %>
-  <%= label :sport2, 'Sport 2' %>
+  <%= label :sport2, 'Football' %>
   <%= check_box_tag :sport3, 3, false %>
-  <%= label :sport3, 'Sport 3' %>
+  <%= label :sport3, 'Flag Football' %>
   <%= check_box_tag :sport4, 4, false %>
-  <%= label :sport4, 'Sport 4' %>
+  <%= label :sport4, 'Ultimate Frisbee' %>
   <%= check_box_tag :sport5, 5, false %>
-  <%= label :sport5, 'Sport 5' %>
+  <%= label :sport5, 'Soccer' %>
   <%= submit_tag("Submit") %>
 <% end %>
