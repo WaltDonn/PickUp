@@ -5,6 +5,8 @@
 // Uncomment to use rem-calc() in your settings
 // @import "foundation/functions";
 
+
+
 // $experimental: true;
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
@@ -1042,21 +1044,53 @@ table {
   border-collapse: collapse;
 }
 
+
 .listTable{
   border: 1px solid black;
 }
 
-tr.specialRows:nth-child(odd) {background-color: #f2f2f2;}
+
+.gamesTable tr:nth-child(even) {background-color: #f2f2f2;}
+
+.gamesTable {
+    width: 1000px;
+    text-align: center;
+}
+
 
 .detailLink {
   color: #71A750;
 }
 
-
-// WALTER'S CSS START (LOGIN, REGISTER, FILTER)
-html {
-  background-color: #b8f7ab;
+.button {
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 8px;
 }
+
+.going {
+    background-color: #90EE90;
+}
+
+.maybe {
+    background-color: #F0E68C;
+}
+
+.game_info {
+    background-color: #87CEFA;
+}
+
+.new_game {
+    background-color: #87CEFA;
+    position: relative;
+    left: -560px;
+}
+
 
 #pickup {
 	color: #8AC566;
